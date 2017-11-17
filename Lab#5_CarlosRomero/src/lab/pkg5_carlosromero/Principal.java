@@ -715,6 +715,7 @@ public class Principal extends javax.swing.JFrame {
             }else{
                 equipo_selected.getJugadores().add(jugador_selected);
                 jugador_selected.setDisponibilidad(false);
+                int y=((int)equipo_selected.getPresupuesto())-((int)jugador_selected.Precio);
             }
             DefaultListModel modele = new DefaultListModel();
             DefaultListModel modelj = new DefaultListModel();
@@ -738,8 +739,13 @@ public class Principal extends javax.swing.JFrame {
         DefaultTreeModel m=(DefaultTreeModel) jt_arbol.getModel();
         DefaultMutableTreeNode raiz= (DefaultMutableTreeNode) m.getRoot();
         DefaultMutableTreeNode nodo_equipo;
+        DefaultMutableTreeNode nodo_j;
         for (int i = 0; i < equipos.size(); i++) {
             nodo_equipo=new DefaultMutableTreeNode(equipos.get(i));
+            for (int j = 0; j < equipos.get(i).getJugadores().size(); j++) {
+                nodo_j=new DefaultMutableTreeNode(equipos.get(i).getJugadores().get(j));
+                nodo_equipo.add(nodo_j);
+            }
             raiz.add(nodo_equipo);
         }
         m.reload();
