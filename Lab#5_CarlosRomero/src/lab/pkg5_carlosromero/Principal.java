@@ -106,6 +106,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
+        ppcomprar = new javax.swing.JPopupMenu();
+        jmcomprar = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -364,6 +366,11 @@ public class Principal extends javax.swing.JFrame {
         jd_comprar.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 810, 170));
 
         list2e.setModel(new DefaultListModel());
+        list2e.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                list2eMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(list2e);
 
         jd_comprar.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 810, 170));
@@ -381,6 +388,14 @@ public class Principal extends javax.swing.JFrame {
         jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel30.setText("Comprar Jugadores");
         jd_comprar.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 520, 30));
+
+        jmcomprar.setText("Comprar Jugador");
+        jmcomprar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmcomprarActionPerformed(evt);
+            }
+        });
+        ppcomprar.add(jmcomprar);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -644,6 +659,16 @@ public class Principal extends javax.swing.JFrame {
         jd_comprar.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void list2eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list2eMouseClicked
+        if(evt.isMetaDown()){
+            ppcomprar.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_list2eMouseClicked
+
+    private void jmcomprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmcomprarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jmcomprarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -731,6 +756,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_comprar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificarequipo;
+    private javax.swing.JMenuItem jmcomprar;
     private javax.swing.JMenuItem jmieliminar;
     private javax.swing.JMenuItem jmieliminar1;
     private javax.swing.JMenuItem jmimodificar;
@@ -740,6 +766,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JList<String> listj;
     private javax.swing.JList<String> listj2;
     private javax.swing.JMenu negocios;
+    private javax.swing.JPopupMenu ppcomprar;
     private javax.swing.JPopupMenu ppmodificarequi;
     private javax.swing.JPopupMenu ppmodificarju;
     private javax.swing.JSpinner spCopas;
