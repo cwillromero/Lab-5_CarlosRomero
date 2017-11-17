@@ -354,8 +354,8 @@ public class Principal extends javax.swing.JFrame {
         sphabilidad1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 10));
         jd_agregarjugadores1.getContentPane().add(sphabilidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 250, 30));
 
-        jd_comprar.setMinimumSize(new java.awt.Dimension(500, 400));
-        jd_comprar.setPreferredSize(new java.awt.Dimension(500, 400));
+        jd_comprar.setMinimumSize(new java.awt.Dimension(900, 550));
+        jd_comprar.setPreferredSize(new java.awt.Dimension(900, 550));
         jd_comprar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         listj2.setModel(new DefaultListModel());
@@ -428,6 +428,11 @@ public class Principal extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
         jMenuItem1.setText("Comprara Jugadores");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         negocios.add(jMenuItem1);
 
         jMenuBar1.add(negocios);
@@ -631,6 +636,13 @@ public class Principal extends javax.swing.JFrame {
             jd_agregarjugadores1.dispose();
         }
     }//GEN-LAST:event_btmodificarjugadorMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        jd_comprar.setModal(true);
+        jd_comprar.pack();
+        jd_comprar.setLocationRelativeTo(this);
+        jd_comprar.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
