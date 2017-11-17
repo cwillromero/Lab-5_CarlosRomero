@@ -107,6 +107,10 @@ public class Principal extends javax.swing.JFrame {
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         btcomprar = new javax.swing.JButton();
+        dj_arbol = new javax.swing.JDialog();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -395,6 +399,23 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jd_comprar.getContentPane().add(btcomprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 170, 50));
+
+        dj_arbol.setMinimumSize(new java.awt.Dimension(900, 550));
+        dj_arbol.setPreferredSize(new java.awt.Dimension(900, 550));
+        dj_arbol.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel33.setText("Arbol");
+        dj_arbol.getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 520, 30));
+
+        jTree1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Liga Española");
+        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane7.setViewportView(jTree1);
+
+        dj_arbol.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 130, 750, -1));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -736,6 +757,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btmodificareq;
     private javax.swing.JButton btmodificarjugador;
     private javax.swing.JMenuItem comprar;
+    private javax.swing.JDialog dj_arbol;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -760,6 +782,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -773,6 +796,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_agregarequipo;
     private javax.swing.JDialog jd_agregarjugadores;
     private javax.swing.JDialog jd_agregarjugadores1;
