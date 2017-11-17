@@ -114,6 +114,8 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane7 = new javax.swing.JScrollPane();
         jt_arbol = new javax.swing.JTree();
         mostrar = new javax.swing.JButton();
+        ppp = new javax.swing.JPopupMenu();
+        eliminarpp = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -417,6 +419,11 @@ public class Principal extends javax.swing.JFrame {
         jt_arbol.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Liga Española");
         jt_arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jt_arbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jt_arbolMouseClicked(evt);
+            }
+        });
         jScrollPane7.setViewportView(jt_arbol);
 
         dj_arbol.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 130, 750, 210));
@@ -428,6 +435,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         dj_arbol.getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 170, 30));
+
+        eliminarpp.setText("Eliminar");
+        eliminarpp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarppActionPerformed(evt);
+            }
+        });
+        ppp.add(eliminarpp);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -758,6 +773,16 @@ public class Principal extends javax.swing.JFrame {
         dj_arbol.setVisible(true);
     }//GEN-LAST:event_jmiarbolActionPerformed
 
+    private void jt_arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_arbolMouseClicked
+        if(evt.isMetaDown()){
+            ppp.show(evt.getComponent(), evt.getX(), evt.getY());
+        }
+    }//GEN-LAST:event_jt_arbolMouseClicked
+
+    private void eliminarppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarppActionPerformed
+        
+    }//GEN-LAST:event_eliminarppActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -804,6 +829,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btmodificarjugador;
     private javax.swing.JMenuItem comprar;
     private javax.swing.JDialog dj_arbol;
+    private javax.swing.JMenuItem eliminarpp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -863,6 +889,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu negocios;
     private javax.swing.JPopupMenu ppmodificarequi;
     private javax.swing.JPopupMenu ppmodificarju;
+    private javax.swing.JPopupMenu ppp;
     private javax.swing.JSpinner spCopas;
     private javax.swing.JSpinner spCopas1;
     private javax.swing.JSpinner sphabilidad;
