@@ -98,6 +98,14 @@ public class Principal extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         spprecio1 = new javax.swing.JSpinner();
         sphabilidad1 = new javax.swing.JSpinner();
+        jd_comprar = new javax.swing.JDialog();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        listj2 = new javax.swing.JList<>();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        list2e = new javax.swing.JList<>();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -169,8 +177,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 0, 0));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Comprar/Eliminar/Modificar Jugadores");
-        jd_listar.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 520, 30));
+        jLabel6.setText("Eliminar/Modificar Jugadores");
+        jd_listar.getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 520, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setText("Equipos:");
@@ -346,6 +354,34 @@ public class Principal extends javax.swing.JFrame {
         sphabilidad1.setModel(new javax.swing.SpinnerNumberModel(0, 0, 100, 10));
         jd_agregarjugadores1.getContentPane().add(sphabilidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 180, 250, 30));
 
+        jd_comprar.setMinimumSize(new java.awt.Dimension(500, 400));
+        jd_comprar.setPreferredSize(new java.awt.Dimension(500, 400));
+        jd_comprar.getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        listj2.setModel(new DefaultListModel());
+        jScrollPane3.setViewportView(listj2);
+
+        jd_comprar.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 810, 170));
+
+        list2e.setModel(new DefaultListModel());
+        jScrollPane4.setViewportView(list2e);
+
+        jd_comprar.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 810, 170));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setText("Jugadores");
+        jd_comprar.getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setText("Equipos:");
+        jd_comprar.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel30.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel30.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel30.setText("Comprar Jugadores");
+        jd_comprar.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 520, 30));
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Agregar.setText("Administracion");
@@ -377,7 +413,7 @@ public class Principal extends javax.swing.JFrame {
 
         Agregar.add(jMenu1);
 
-        comprar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.ALT_MASK));
+        comprar.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.CTRL_MASK));
         comprar.setText("Listar y Modificar  Jugadores");
         comprar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -390,7 +426,8 @@ public class Principal extends javax.swing.JFrame {
 
         negocios.setText("Negocios");
 
-        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
+        jMenuItem1.setText("Comprara Jugadores");
         negocios.add(jMenuItem1);
 
         jMenuBar1.add(negocios);
@@ -436,6 +473,7 @@ public class Principal extends javax.swing.JFrame {
         DefaultListModel modelo= (DefaultListModel) listeq.getModel();
         modelo.addElement(new Equipos (Nombre, Presupuesto, CopasGanadas,Estadio));
         listeq.setModel(modelo);
+        list2e.setModel(modelo);
         Equipos e=new Equipos (Nombre, Presupuesto, CopasGanadas,Estadio);
         equipos.add(e);
         JOptionPane.showMessageDialog(jd_agregarequipo, "Guardado!", "Proceso Correcto", 1);
@@ -464,6 +502,7 @@ public class Principal extends javax.swing.JFrame {
         DefaultListModel modelo= (DefaultListModel) listj.getModel();
         modelo.addElement(new Jugadores(NombreJ, Precio, Posicion, Disponibilidad, Habilidad, Tecnica, Resistecia));
         listj.setModel(modelo);
+        listj2.setModel(modelo);
         Jugadores j=new Jugadores(NombreJ, Precio, Posicion, Disponibilidad, Habilidad, Tecnica, Resistecia);
         jugadores.add(j);
         JOptionPane.showMessageDialog(jd_agregarjugadores, "Guardado!", "Proceso Correcto", 1);
@@ -500,6 +539,7 @@ public class Principal extends javax.swing.JFrame {
             modelo.addElement(jugadores.get(i));
        }
        listj.setModel(modelo);
+       listj2.setModel(modelo);
        }catch(Exception e){
            JOptionPane.showMessageDialog(jd_listar, "No hay Selección alguna!", "Error", 0);
        }
@@ -521,6 +561,7 @@ public class Principal extends javax.swing.JFrame {
             model.addElement(equipos.get(i));
        }
        listeq.setModel(model);
+       list2e.setModel(model);
        }catch(Exception e){
            JOptionPane.showMessageDialog(jd_listar, "No hay Selección alguna!", "Error", 0);
        }
@@ -551,6 +592,7 @@ public class Principal extends javax.swing.JFrame {
             model.addElement(equipos.get(i));
         }
         listeq.setModel(model);
+        list2e.setModel(model);
         Equipos e=new Equipos (Nombre, Presupuesto, CopasGanadas,Estadio);
         JOptionPane.showMessageDialog(jd_agregarequipo, "Modificado!", "Proceso Correcto", 1);
         jd_modificarequipo.dispose();
@@ -581,6 +623,7 @@ public class Principal extends javax.swing.JFrame {
             model.addElement(jugadores.get(i));
         }
         listj.setModel(model);
+        listj2.setModel(model);
         JOptionPane.showMessageDialog(jd_agregarequipo, "Modificado!", "Proceso Correcto", 1);
         jd_agregarjugadores1.dispose();
         } catch (Exception e) {
@@ -653,7 +696,10 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -665,17 +711,22 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JDialog jd_agregarequipo;
     private javax.swing.JDialog jd_agregarjugadores;
     private javax.swing.JDialog jd_agregarjugadores1;
+    private javax.swing.JDialog jd_comprar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificarequipo;
     private javax.swing.JMenuItem jmieliminar;
     private javax.swing.JMenuItem jmieliminar1;
     private javax.swing.JMenuItem jmimodificar;
     private javax.swing.JMenuItem jmimodificar1;
+    private javax.swing.JList<String> list2e;
     private javax.swing.JList<String> listeq;
     private javax.swing.JList<String> listj;
+    private javax.swing.JList<String> listj2;
     private javax.swing.JMenu negocios;
     private javax.swing.JPopupMenu ppmodificarequi;
     private javax.swing.JPopupMenu ppmodificarju;
