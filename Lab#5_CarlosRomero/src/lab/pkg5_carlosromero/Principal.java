@@ -106,8 +106,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        ppcomprar = new javax.swing.JPopupMenu();
-        jmcomprar = new javax.swing.JMenuItem();
+        btcomprar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -363,7 +362,7 @@ public class Principal extends javax.swing.JFrame {
         listj2.setModel(new DefaultListModel());
         jScrollPane3.setViewportView(listj2);
 
-        jd_comprar.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 810, 170));
+        jd_comprar.getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 810, 120));
 
         list2e.setModel(new DefaultListModel());
         list2e.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -373,7 +372,7 @@ public class Principal extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(list2e);
 
-        jd_comprar.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 810, 170));
+        jd_comprar.getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, 810, 130));
 
         jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel28.setText("Jugadores");
@@ -381,7 +380,7 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel29.setText("Equipos:");
-        jd_comprar.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, -1));
+        jd_comprar.getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
 
         jLabel30.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel30.setForeground(new java.awt.Color(204, 0, 0));
@@ -389,13 +388,13 @@ public class Principal extends javax.swing.JFrame {
         jLabel30.setText("Comprar Jugadores");
         jd_comprar.getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 520, 30));
 
-        jmcomprar.setText("Comprar Jugador");
-        jmcomprar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmcomprarActionPerformed(evt);
+        btcomprar.setText("Comprar");
+        btcomprar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btcomprarMouseClicked(evt);
             }
         });
-        ppcomprar.add(jmcomprar);
+        jd_comprar.getContentPane().add(btcomprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 170, 50));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -660,14 +659,37 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void list2eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_list2eMouseClicked
-        if(evt.isMetaDown()){
-            ppcomprar.show(evt.getComponent(), evt.getX(), evt.getY());
-        }
+
     }//GEN-LAST:event_list2eMouseClicked
 
-    private void jmcomprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmcomprarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jmcomprarActionPerformed
+    private void btcomprarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btcomprarMouseClicked
+        try {
+            E=list2e.getSelectedIndex();
+            equipo_selected=equipos.get(E);
+            J=listj2.getSelectedIndex();
+            jugador_selected=jugadores.get(J);
+            if(jugador_selected.getDisponibilidad()==false || (equipo_selected.getPresupuesto()<jugador_selected.getPrecio())){
+                JOptionPane.showMessageDialog(jd_listar, "No puede comprar este Jugador!", "Error", 0);
+            }else{
+                equipo_selected.getJugadores().add(jugador_selected);
+                jugador_selected.setDisponibilidad(false);
+            }
+            DefaultListModel modele = new DefaultListModel();
+            DefaultListModel modelj = new DefaultListModel();
+            for (int i = 0; i < equipos.size(); i++) {
+                modele.addElement(equipos.get(i));
+            }
+            for (int i = 0; i < jugadores.size(); i++) {
+                modelj.addElement(jugadores.get(i));
+            }
+            listj.setModel(modelj);
+            listj2.setModel(modelj);
+            list2e.setModel(modele);
+            listeq.setModel(modele);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(jd_listar, "Ocurrió un Error!!", "Error", 0);
+        }
+    }//GEN-LAST:event_btcomprarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -708,6 +730,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenu Agregar;
     private javax.swing.JMenuItem aequipo;
     private javax.swing.JMenuItem ajugadores;
+    private javax.swing.JButton btcomprar;
     private javax.swing.JButton btguardareq;
     private javax.swing.JButton btguardarjugador;
     private javax.swing.JButton btmodificareq;
@@ -756,7 +779,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_comprar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificarequipo;
-    private javax.swing.JMenuItem jmcomprar;
     private javax.swing.JMenuItem jmieliminar;
     private javax.swing.JMenuItem jmieliminar1;
     private javax.swing.JMenuItem jmimodificar;
@@ -766,7 +788,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JList<String> listj;
     private javax.swing.JList<String> listj2;
     private javax.swing.JMenu negocios;
-    private javax.swing.JPopupMenu ppcomprar;
     private javax.swing.JPopupMenu ppmodificarequi;
     private javax.swing.JPopupMenu ppmodificarju;
     private javax.swing.JSpinner spCopas;

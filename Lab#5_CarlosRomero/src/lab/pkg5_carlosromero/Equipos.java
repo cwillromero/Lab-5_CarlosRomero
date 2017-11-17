@@ -62,7 +62,7 @@ public class Equipos {
 
     @Override
     public String toString() {
-        return "Nombre:  " + Nombre + "   CopasGanadas: " + CopasGanadas;
+        return "Nombre:  " + Nombre + "   CopasGanadas: " + CopasGanadas +Jugadores;
     }
        
 }

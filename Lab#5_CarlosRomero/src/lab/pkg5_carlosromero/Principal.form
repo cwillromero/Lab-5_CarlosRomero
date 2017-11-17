@@ -754,7 +754,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="280" width="810" height="170"/>
+              <AbsoluteConstraints x="50" y="80" width="810" height="120"/>
             </Constraint>
           </Constraints>
 
@@ -778,7 +778,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="50" y="70" width="810" height="170"/>
+              <AbsoluteConstraints x="50" y="250" width="810" height="130"/>
             </Constraint>
           </Constraints>
 
@@ -821,7 +821,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="250" width="-1" height="-1"/>
+              <AbsoluteConstraints x="30" y="220" width="-1" height="-1"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -842,22 +842,19 @@
             </Constraint>
           </Constraints>
         </Component>
-      </SubComponents>
-    </Container>
-    <Container class="javax.swing.JPopupMenu" name="ppcomprar">
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
-        <Property name="useNullLayout" type="boolean" value="true"/>
-      </Layout>
-      <SubComponents>
-        <MenuItem class="javax.swing.JMenuItem" name="jmcomprar">
+        <Component class="javax.swing.JButton" name="btcomprar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Comprar Jugador"/>
+            <Property name="text" type="java.lang.String" value="Comprar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmcomprarActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btcomprarMouseClicked"/>
           </Events>
-        </MenuItem>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+              <AbsoluteConstraints x="380" y="390" width="170" height="50"/>
+            </Constraint>
+          </Constraints>
+        </Component>
       </SubComponents>
     </Container>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">

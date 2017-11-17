@@ -47,7 +47,7 @@ public class Jugadores {
         this.Posicion = Posicion;
     }
 
-    public boolean isDisponibilidad() {
+    public boolean getDisponibilidad() {
         return Disponibilidad;
     }
 
