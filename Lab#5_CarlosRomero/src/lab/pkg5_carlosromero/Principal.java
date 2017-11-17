@@ -116,6 +116,7 @@ public class Principal extends javax.swing.JFrame {
         mostrar = new javax.swing.JButton();
         ppp = new javax.swing.JPopupMenu();
         eliminarpp = new javax.swing.JMenuItem();
+        datos = new javax.swing.JMenuItem();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -443,6 +444,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         ppp.add(eliminarpp);
+
+        datos.setText("Ver datos");
+        datos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                datosActionPerformed(evt);
+            }
+        });
+        ppp.add(datos);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -775,13 +784,27 @@ public class Principal extends javax.swing.JFrame {
 
     private void jt_arbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jt_arbolMouseClicked
         if(evt.isMetaDown()){
-            ppp.show(evt.getComponent(), evt.getX(), evt.getY());
+            int row =jt_arbol.getClosestRowForLocation(evt.getX(), evt.getY());
+            jt_arbol.setSelectionRow(row);
+            Object v1=jt_arbol.getSelectionPath().getLastPathComponent();
+            nodo_seleccionado=(DefaultMutableTreeNode) v1;
+            if(nodo_seleccionado.getUserObject() instanceof Jugadores){
+                ppp.show(evt.getComponent(),evt.getX(),evt.getY());
+                
+            }
         }
     }//GEN-LAST:event_jt_arbolMouseClicked
 
     private void eliminarppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarppActionPerformed
-        
+        DefaultTreeModel modelArbol =(DefaultTreeModel) jt_arbol.getModel();
+        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
+        raiz.remove(nodo_seleccionado.getChildCount());
+        modelArbol.reload();
     }//GEN-LAST:event_eliminarppActionPerformed
+
+    private void datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datosActionPerformed
+        
+    }//GEN-LAST:event_datosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -828,6 +851,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton btmodificareq;
     private javax.swing.JButton btmodificarjugador;
     private javax.swing.JMenuItem comprar;
+    private javax.swing.JMenuItem datos;
     private javax.swing.JDialog dj_arbol;
     private javax.swing.JMenuItem eliminarpp;
     private javax.swing.JLabel jLabel1;
@@ -917,4 +941,5 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Jugadores> jugadores=new ArrayList();
     ArrayList<Equipos> equipos=new ArrayList();
     int J,E;
+    DefaultMutableTreeNode nodo_seleccionado;
 }
