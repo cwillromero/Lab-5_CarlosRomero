@@ -8,6 +8,8 @@ package lab.pkg5_carlosromero;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -110,7 +112,8 @@ public class Principal extends javax.swing.JFrame {
         dj_arbol = new javax.swing.JDialog();
         jLabel33 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTree1 = new javax.swing.JTree();
+        jt_arbol = new javax.swing.JTree();
+        mostrar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -119,6 +122,7 @@ public class Principal extends javax.swing.JFrame {
         comprar = new javax.swing.JMenuItem();
         negocios = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jmiarbol = new javax.swing.JMenuItem();
 
         jd_agregarequipo.setMinimumSize(new java.awt.Dimension(500, 400));
         jd_agregarequipo.setPreferredSize(new java.awt.Dimension(500, 400));
@@ -410,12 +414,20 @@ public class Principal extends javax.swing.JFrame {
         jLabel33.setText("Arbol");
         dj_arbol.getContentPane().add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 520, 30));
 
-        jTree1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jt_arbol.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Liga Española");
-        jTree1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        jScrollPane7.setViewportView(jTree1);
+        jt_arbol.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane7.setViewportView(jt_arbol);
 
-        dj_arbol.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 130, 750, -1));
+        dj_arbol.getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 130, 750, 210));
+
+        mostrar.setText("Mostrar");
+        mostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mostrarMouseClicked(evt);
+            }
+        });
+        dj_arbol.getContentPane().add(mostrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, 170, 30));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -469,6 +481,15 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         negocios.add(jMenuItem1);
+
+        jmiarbol.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
+        jmiarbol.setText("Arbol");
+        jmiarbol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiarbolActionPerformed(evt);
+            }
+        });
+        negocios.add(jmiarbol);
 
         jMenuBar1.add(negocios);
 
@@ -712,6 +733,25 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btcomprarMouseClicked
 
+    private void mostrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mostrarMouseClicked
+        // TODO add your handling code here:
+        DefaultTreeModel m=(DefaultTreeModel) jt_arbol.getModel();
+        DefaultMutableTreeNode raiz= (DefaultMutableTreeNode) m.getRoot();
+        DefaultMutableTreeNode nodo_equipo;
+        for (int i = 0; i < equipos.size(); i++) {
+            nodo_equipo=new DefaultMutableTreeNode(equipos.get(i));
+            raiz.add(nodo_equipo);
+        }
+        m.reload();
+    }//GEN-LAST:event_mostrarMouseClicked
+
+    private void jmiarbolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiarbolActionPerformed
+        dj_arbol.setModal(true);
+        dj_arbol.pack();
+        dj_arbol.setLocationRelativeTo(this);
+        dj_arbol.setVisible(true);
+    }//GEN-LAST:event_jmiarbolActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -797,21 +837,23 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JTree jTree1;
     private javax.swing.JDialog jd_agregarequipo;
     private javax.swing.JDialog jd_agregarjugadores;
     private javax.swing.JDialog jd_agregarjugadores1;
     private javax.swing.JDialog jd_comprar;
     private javax.swing.JDialog jd_listar;
     private javax.swing.JDialog jd_modificarequipo;
+    private javax.swing.JMenuItem jmiarbol;
     private javax.swing.JMenuItem jmieliminar;
     private javax.swing.JMenuItem jmieliminar1;
     private javax.swing.JMenuItem jmimodificar;
     private javax.swing.JMenuItem jmimodificar1;
+    private javax.swing.JTree jt_arbol;
     private javax.swing.JList<String> list2e;
     private javax.swing.JList<String> listeq;
     private javax.swing.JList<String> listj;
     private javax.swing.JList<String> listj2;
+    private javax.swing.JButton mostrar;
     private javax.swing.JMenu negocios;
     private javax.swing.JPopupMenu ppmodificarequi;
     private javax.swing.JPopupMenu ppmodificarju;
