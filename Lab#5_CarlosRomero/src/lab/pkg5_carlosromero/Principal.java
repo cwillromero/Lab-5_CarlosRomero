@@ -117,6 +117,7 @@ public class Principal extends javax.swing.JFrame {
         ppp = new javax.swing.JPopupMenu();
         eliminarpp = new javax.swing.JMenuItem();
         datos = new javax.swing.JMenuItem();
+        jLabel31 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Agregar = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
@@ -455,6 +456,10 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel31.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
+        jLabel31.setForeground(new java.awt.Color(51, 255, 51));
+        jLabel31.setText("LIGA ESPAÑOLA");
+
         Agregar.setText("Administracion");
 
         jMenu1.setText("Agregar");
@@ -523,11 +528,17 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 602, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(147, Short.MAX_VALUE)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(97, 97, 97))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 414, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(76, 76, 76)
+                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(134, Short.MAX_VALUE))
         );
 
         pack();
@@ -798,7 +809,7 @@ public class Principal extends javax.swing.JFrame {
     private void eliminarppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarppActionPerformed
         DefaultTreeModel modelArbol =(DefaultTreeModel) jt_arbol.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
-        raiz.remove(nodo_seleccionado.getChildCount());
+                raiz.remove(nodo_seleccionado.getIndex(raiz));
         modelArbol.reload();
     }//GEN-LAST:event_eliminarppActionPerformed
 
@@ -878,6 +889,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
