@@ -807,10 +807,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jt_arbolMouseClicked
 
     private void eliminarppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarppActionPerformed
-        DefaultTreeModel modelArbol =(DefaultTreeModel) jt_arbol.getModel();
-        DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modelArbol.getRoot();
-                raiz.remove(nodo_seleccionado.getIndex(raiz));
-        modelArbol.reload();
+        try{
+        equipos.get(Carpeta).getJugadores().get(global).setDisponibilidad(true);
+        equipos.get(Carpeta).getJugadores().remove(global);
+        DefaultListModel modelo = new DefaultListModel();
+        for (Jugadores J : jugadores) {
+            modelo.addElement(J);
+        }
+        listj.setModel(modelo);
+        listj2.setModel(modelo);
+         DefaultListModel modelo1 = (DefaultListModel) listeq.getModel();
+        modelo1 = new DefaultListModel();
+        for (Equipos E : equipos) {
+            modelo1.addElement(E);
+        }
+        listeq.setModel(modelo1);
+        list2e.setModel(modelo1);
+        }catch(Exception e){
+        
+    }
     }//GEN-LAST:event_eliminarppActionPerformed
 
     private void datosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_datosActionPerformed
@@ -954,4 +969,6 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Equipos> equipos=new ArrayList();
     int J,E;
     DefaultMutableTreeNode nodo_seleccionado;
+    int Carpeta;
+    int global;
 }
